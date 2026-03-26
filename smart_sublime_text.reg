@@ -1,0 +1,124 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\*\shell\Open with Sublime Text\command]
+@="C:\\tools\\bin\\smart-launch.exe \"C:\\Program Files\\Sublime Text\\sublime_text.exe\" -n \"%1\""
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\*\shell\Open with Sublime Text\command]
+@="C:\\tools\\bin\\smart-launch.exe \"C:\\Program Files\\Sublime Text\\sublime_text.exe\" -n \"%1\""
+
+
+[HKEY_CLASSES_ROOT\Applications\sublime_text.exe\shell\open\command]
+@="C:\\tools\\bin\\smart-launch.exe \"C:\\Program Files\\Sublime Text\\sublime_text.exe\" -n \"%1\""
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Applications\sublime_text.exe\shell\open\command]
+@="C:\\tools\\bin\\smart-launch.exe \"C:\\Program Files\\Sublime Text\\sublime_text.exe\" -n \"%1\""
+
+
+[HKEY_CLASSES_ROOT\bvh_auto_file\shell\open\command]
+@="C:\\tools\\bin\\smart-launch.exe \"C:\\Program Files\\Sublime Text\\sublime_text.exe\" -n \"%1\""
+
+[HKEY_CLASSES_ROOT\dae_auto_file\shell\open\command]
+@="C:\\tools\\bin\\smart-launch.exe \"C:\\Program Files\\Sublime Text\\sublime_text.exe\" -n \"%1\""
+
+[HKEY_CLASSES_ROOT\json_auto_file\shell\open\command]
+@="C:\\tools\\bin\\smart-launch.exe \"C:\\Program Files\\Sublime Text\\sublime_text.exe\" -n \"%1\""
+
+[HKEY_CLASSES_ROOT\py_auto_file\shell\open\command]
+@="C:\\tools\\bin\\smart-launch.exe \"C:\\Program Files\\Sublime Text\\sublime_text.exe\" -n \"%1\""
+
+[HKEY_CURRENT_USER\Software\Classes\bvh_auto_file\shell\open\command]
+@="C:\\tools\\bin\\smart-launch.exe \"C:\\Program Files\\Sublime Text\\sublime_text.exe\" -n \"%1\""
+
+[HKEY_CURRENT_USER\Software\Classes\dae_auto_file\shell\open\command]
+@="C:\\tools\\bin\\smart-launch.exe \"C:\\Program Files\\Sublime Text\\sublime_text.exe\" -n \"%1\""
+
+[HKEY_CURRENT_USER\Software\Classes\json_auto_file\shell\open\command]
+@="C:\\tools\\bin\\smart-launch.exe \"C:\\Program Files\\Sublime Text\\sublime_text.exe\" -n \"%1\""
+
+[HKEY_CURRENT_USER\Software\Classes\py_auto_file\shell\open\command]
+@="C:\\tools\\bin\\smart-launch.exe \"C:\\Program Files\\Sublime Text\\sublime_text.exe\" -n \"%1\""
+
+
+[HKEY_CLASSES_ROOT\com.sublimehq.sublimetext.build-system\shell\open\command]
+@="C:\\tools\\bin\\smart-launch.exe \"C:\\Program Files\\Sublime Text\\sublime_text.exe\" -n \"%1\""
+
+[HKEY_CLASSES_ROOT\com.sublimehq.sublimetext.color-scheme\shell\open\command]
+@="C:\\tools\\bin\\smart-launch.exe \"C:\\Program Files\\Sublime Text\\sublime_text.exe\" -n \"%1\""
+
+[HKEY_CLASSES_ROOT\com.sublimehq.sublimetext.commands\shell\open\command]
+@="C:\\tools\\bin\\smart-launch.exe \"C:\\Program Files\\Sublime Text\\sublime_text.exe\" -n \"%1\""
+
+[HKEY_CLASSES_ROOT\com.sublimehq.sublimetext.completions\shell\open\command]
+@="C:\\tools\\bin\\smart-launch.exe \"C:\\Program Files\\Sublime Text\\sublime_text.exe\" -n \"%1\""
+
+[HKEY_CLASSES_ROOT\com.sublimehq.sublimetext.keymap\shell\open\command]
+@="C:\\tools\\bin\\smart-launch.exe \"C:\\Program Files\\Sublime Text\\sublime_text.exe\" -n \"%1\""
+
+[HKEY_CLASSES_ROOT\com.sublimehq.sublimetext.macro\shell\open\command]
+@="C:\\tools\\bin\\smart-launch.exe \"C:\\Program Files\\Sublime Text\\sublime_text.exe\" -n \"%1\""
+
+[HKEY_CLASSES_ROOT\com.sublimehq.sublimetext.menu\shell\open\command]
+@="C:\\tools\\bin\\smart-launch.exe \"C:\\Program Files\\Sublime Text\\sublime_text.exe\" -n \"%1\""
+
+[HKEY_CLASSES_ROOT\com.sublimehq.sublimetext.mousemap\shell\open\command]
+@="C:\\tools\\bin\\smart-launch.exe \"C:\\Program Files\\Sublime Text\\sublime_text.exe\" -n \"%1\""
+
+[HKEY_CLASSES_ROOT\com.sublimehq.sublimetext.project\shell\open\command]
+@="C:\\tools\\bin\\smart-launch.exe \"C:\\Program Files\\Sublime Text\\sublime_text.exe\" -n \"%1\""
+
+[HKEY_CLASSES_ROOT\com.sublimehq.sublimetext.settings\shell\open\command]
+@="C:\\tools\\bin\\smart-launch.exe \"C:\\Program Files\\Sublime Text\\sublime_text.exe\" -n \"%1\""
+
+[HKEY_CLASSES_ROOT\com.sublimehq.sublimetext.snippet\shell\open\command]
+@="C:\\tools\\bin\\smart-launch.exe \"C:\\Program Files\\Sublime Text\\sublime_text.exe\" -n \"%1\""
+
+[HKEY_CLASSES_ROOT\com.sublimehq.sublimetext.syntax\shell\open\command]
+@="C:\\tools\\bin\\smart-launch.exe \"C:\\Program Files\\Sublime Text\\sublime_text.exe\" -n \"%1\""
+
+[HKEY_CLASSES_ROOT\com.sublimehq.sublimetext.theme\shell\open\command]
+@="C:\\tools\\bin\\smart-launch.exe \"C:\\Program Files\\Sublime Text\\sublime_text.exe\" -n \"%1\""
+
+[HKEY_CLASSES_ROOT\com.sublimehq.sublimetext.workspace\shell\open\command]
+@="C:\\tools\\bin\\smart-launch.exe \"C:\\Program Files\\Sublime Text\\sublime_text.exe\" -n \"%1\""
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\com.sublimehq.sublimetext.build-system\shell\open\command]
+@="C:\\tools\\bin\\smart-launch.exe \"C:\\Program Files\\Sublime Text\\sublime_text.exe\" -n \"%1\""
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\com.sublimehq.sublimetext.color-scheme\shell\open\command]
+@="C:\\tools\\bin\\smart-launch.exe \"C:\\Program Files\\Sublime Text\\sublime_text.exe\" -n \"%1\""
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\com.sublimehq.sublimetext.commands\shell\open\command]
+@="C:\\tools\\bin\\smart-launch.exe \"C:\\Program Files\\Sublime Text\\sublime_text.exe\" -n \"%1\""
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\com.sublimehq.sublimetext.completions\shell\open\command]
+@="C:\\tools\\bin\\smart-launch.exe \"C:\\Program Files\\Sublime Text\\sublime_text.exe\" -n \"%1\""
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\com.sublimehq.sublimetext.keymap\shell\open\command]
+@="C:\\tools\\bin\\smart-launch.exe \"C:\\Program Files\\Sublime Text\\sublime_text.exe\" -n \"%1\""
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\com.sublimehq.sublimetext.macro\shell\open\command]
+@="C:\\tools\\bin\\smart-launch.exe \"C:\\Program Files\\Sublime Text\\sublime_text.exe\" -n \"%1\""
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\com.sublimehq.sublimetext.menu\shell\open\command]
+@="C:\\tools\\bin\\smart-launch.exe \"C:\\Program Files\\Sublime Text\\sublime_text.exe\" -n \"%1\""
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\com.sublimehq.sublimetext.mousemap\shell\open\command]
+@="C:\\tools\\bin\\smart-launch.exe \"C:\\Program Files\\Sublime Text\\sublime_text.exe\" -n \"%1\""
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\com.sublimehq.sublimetext.project\shell\open\command]
+@="C:\\tools\\bin\\smart-launch.exe \"C:\\Program Files\\Sublime Text\\sublime_text.exe\" -n \"%1\""
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\com.sublimehq.sublimetext.settings\shell\open\command]
+@="C:\\tools\\bin\\smart-launch.exe \"C:\\Program Files\\Sublime Text\\sublime_text.exe\" -n \"%1\""
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\com.sublimehq.sublimetext.snippet\shell\open\command]
+@="C:\\tools\\bin\\smart-launch.exe \"C:\\Program Files\\Sublime Text\\sublime_text.exe\" -n \"%1\""
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\com.sublimehq.sublimetext.syntax\shell\open\command]
+@="C:\\tools\\bin\\smart-launch.exe \"C:\\Program Files\\Sublime Text\\sublime_text.exe\" -n \"%1\""
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\com.sublimehq.sublimetext.theme\shell\open\command]
+@="C:\\tools\\bin\\smart-launch.exe \"C:\\Program Files\\Sublime Text\\sublime_text.exe\" -n \"%1\""
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\com.sublimehq.sublimetext.workspace\shell\open\command]
+@="C:\\tools\\bin\\smart-launch.exe \"C:\\Program Files\\Sublime Text\\sublime_text.exe\" -n \"%1\""
