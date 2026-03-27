@@ -1,0 +1,38 @@
+// smart-chrome.rc
+// Resource script for smart-chrome.exe
+// The icon file chrome.ico must be present at build time.
+// See fetch_icons.py to extract it automatically from your Chrome installation.
+
+#include <winver.h>
+
+// Application icon (ID 1 = default app icon shown in Explorer/taskbar)
+1 ICON "chrome.ico"
+
+// Version information block
+VS_VERSION_INFO VERSIONINFO
+    FILEVERSION     1,0,0,0
+    PRODUCTVERSION  1,0,0,0
+    FILEFLAGSMASK   VS_FFI_FILEFLAGSMASK
+    FILEFLAGS       0
+    FILEOS          VOS_NT_WINDOWS32
+    FILETYPE        VFT_APP
+    FILESUBTYPE     VFT2_UNKNOWN
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"   // Language: English (US), Code page: Unicode
+        BEGIN
+            VALUE "CompanyName",      "smart-launch"
+            VALUE "FileDescription",  "Smart Chrome Launcher"
+            VALUE "FileVersion",      "1.0.0.0"
+            VALUE "InternalName",     "smart-chrome"
+            VALUE "OriginalFilename", "smart-chrome.exe"
+            VALUE "ProductName",      "smart-chrome"
+            VALUE "ProductVersion",   "1.0.0.0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x0409, 0x04B0
+    END
+END

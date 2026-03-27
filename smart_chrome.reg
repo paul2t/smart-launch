@@ -1,32 +1,32 @@
 Windows Registry Editor Version 5.00
 
 [HKEY_CLASSES_ROOT\ChromeHTML\shell\open\command]
-@="C:\\tools\\bin\\smart-launch.exe \"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --new-window \"%1\""
+@="E:\\tools\\bin\\smart-chrome.exe \"%1\""
 
 [HKEY_CLASSES_ROOT\google-chrome\shell\open\command]
-@="C:\\tools\\bin\\smart-launch.exe \"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --new-window \"%1\""
+@="E:\\tools\\bin\\smart-chrome.exe \"%1\""
 
 [HKEY_CLASSES_ROOT\http\shell\open\command]
-@="C:\\tools\\bin\\smart-launch.exe \"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --new-window \"%1\""
+@="E:\\tools\\bin\\smart-chrome.exe \"%1\""
 
 [HKEY_CLASSES_ROOT\https\shell\open\command]
-@="C:\\tools\\bin\\smart-launch.exe \"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --new-window \"%1\""
+@="E:\\tools\\bin\\smart-chrome.exe \"%1\""
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Classes\ChromeHTML\shell\open\command]
-@="C:\\tools\\bin\\smart-launch.exe \"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --new-window \"%1\""
+@="E:\\tools\\bin\\smart-chrome.exe \"%1\""
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Classes\google-chrome\shell\open\command]
-@="C:\\tools\\bin\\smart-launch.exe \"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --new-window \"%1\""
+@="E:\\tools\\bin\\smart-chrome.exe \"%1\""
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Classes\http\shell\open\command]
-@="C:\\tools\\bin\\smart-launch.exe \"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --new-window \"%1\""
+@="E:\\tools\\bin\\smart-chrome.exe \"%1\""
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Classes\https\shell\open\command]
-@="C:\\tools\\bin\\smart-launch.exe \"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --new-window \"%1\""
+@="E:\\tools\\bin\\smart-chrome.exe \"%1\""
 
 
 [HKEY_CLASSES_ROOT\ChromePDF\shell\open\command]
-@="C:\\tools\\bin\\smart-launch.exe \"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --new-window \"%1\""
+@="E:\\tools\\bin\\smart-chrome.exe \"%1\""
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Classes\ChromePDF\shell\open\command]
-@="C:\\tools\\bin\\smart-launch.exe \"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --new-window \"%1\""
+@="E:\\tools\\bin\\smart-chrome.exe \"%1\""

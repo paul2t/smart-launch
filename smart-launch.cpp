@@ -1,12 +1,26 @@
 #include <windows.h>
 #include <dwmapi.h>
 #include <string>
-#include <vector>
 #include <algorithm>
 
 #pragma comment(lib, "dwmapi.lib")
 #pragma comment(lib, "user32.lib")
 #pragma comment(lib, "shell32.lib")
+
+// ---------------------------------------------------------------------------
+// Per-target configuration — defined via /D on the compiler command line.
+//
+//   TARGET_EXE_PATH    Full path to the target executable  (wide string literal)
+//   TARGET_NEW_WINDOW  Flag passed when no window is found (wide string literal)
+//                      Define as L"" to pass no flag at all.
+//
+// Example (chrome):
+//   /DTARGET_EXE_PATH=L"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
+//   /DTARGET_NEW_WINDOW=L"--new-window"
+// ---------------------------------------------------------------------------
+#if !defined(TARGET_EXE_PATH) || !defined(TARGET_NEW_WINDOW)
+#  error "Define TARGET_EXE_PATH and TARGET_NEW_WINDOW on the compiler command line."
+#endif
 
 struct TargetInfo {
     std::wstring processName;
@@ -19,29 +33,28 @@ std::wstring ToLower(std::wstring s) {
 }
 
 BOOL CALLBACK EnumWindowsProc(HWND hwnd, LPARAM lParam) {
-    TargetInfo* target = (TargetInfo*)lParam;
+    TargetInfo* target = reinterpret_cast<TargetInfo*>(lParam);
     if (!IsWindowVisible(hwnd)) return TRUE;
 
     int cloaked = 0;
-    DwmGetWindowAttribute(hwnd, 14, &cloaked, sizeof(int));
+    DwmGetWindowAttribute(hwnd, DWMWA_CLOAKED, &cloaked, sizeof(int));
     if (cloaked != 0) return TRUE;
 
     DWORD pid;
     GetWindowThreadProcessId(hwnd, &pid);
-    
+
     HANDLE hProcess = OpenProcess(PROCESS_QUERY_LIMITED_INFORMATION, FALSE, pid);
     if (hProcess) {
         wchar_t imagePath[MAX_PATH];
         DWORD size = MAX_PATH;
         if (QueryFullProcessImageNameW(hProcess, 0, imagePath, &size)) {
             std::wstring path = ToLower(imagePath);
-            // Check if this window belongs to our target process
             if (path.find(L"\\" + target->processName) != std::wstring::npos) {
                 wchar_t title[256];
                 if (GetWindowTextW(hwnd, title, 256) > 0) {
                     target->foundHwnd = hwnd;
                     CloseHandle(hProcess);
-                    return FALSE; 
+                    return FALSE;
                 }
             }
         }
@@ -50,50 +63,47 @@ BOOL CALLBACK EnumWindowsProc(HWND hwnd, LPARAM lParam) {
     return TRUE;
 }
 
-int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nShowCmd) {
+int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
+    // The only accepted argument is an optional path/URL to open.
     int argc;
     LPWSTR* argv = CommandLineToArgvW(GetCommandLineW(), &argc);
-    
-    // Minimum 3 args: [0]Launcher, [1]ExePath, [2]NewWindowFlag
-    if (argc < 3) {
-        if (argv) LocalFree(argv);
-        return 1;
-    }
 
-    AllowSetForegroundWindow(ASFW_ANY);
+    const std::wstring fullExePath   = TARGET_EXE_PATH;
+    const std::wstring newWindowFlag = TARGET_NEW_WINDOW;
 
-    std::wstring fullExePath = argv[1];
-    std::wstring newWindowFlag = argv[2];
-    
-    // Extract just the filename (e.g., chrome.exe) for the window search
+    // Derive process name (e.g. "chrome.exe") for the window search
     size_t lastSlash = fullExePath.find_last_of(L"\\");
     TargetInfo target;
-    target.processName = ToLower((lastSlash == std::wstring::npos) ? fullExePath : fullExePath.substr(lastSlash + 1));
+    target.processName = ToLower(
+        (lastSlash == std::wstring::npos) ? fullExePath : fullExePath.substr(lastSlash + 1)
+    );
 
-    // 1. Scan for a window belonging to this process on the current desktop
-    EnumWindows(EnumWindowsProc, (LPARAM)&target);
+    // 1. Check whether the app already has a visible window
+    AllowSetForegroundWindow(ASFW_ANY);
+    EnumWindows(EnumWindowsProc, reinterpret_cast<LPARAM>(&target));
 
-    // 2. Build the command line
-    std::wstring finalCmd = L"\"" + fullExePath + L"\" ";
+    // 2. Build command line
+    std::wstring finalCmd = L"\"" + fullExePath + L"\"";
 
     if (target.foundHwnd != NULL) {
+        // App is already running — bring it to the foreground
         SetForegroundWindow(target.foundHwnd);
     } else {
-        // If flag is "NONE", skip adding a flag
-        if (newWindowFlag != L"NONE") {
-            finalCmd += newWindowFlag + L" ";
+        // App is not running — add the new-window flag if one is configured
+        if (!newWindowFlag.empty()) {
+            finalCmd += L" " + newWindowFlag;
         }
     }
 
-    // 3. Append all remaining arguments
-    for (int i = 3; i < argc; i++) {
-        finalCmd += L"\"" + std::wstring(argv[i]) + L"\" ";
+    // 3. Forward the optional path/URL argument (argv[1])
+    if (argc >= 2) {
+        finalCmd += L" \"" + std::wstring(argv[1]) + L"\"";
     }
 
     // 4. Launch
     STARTUPINFOW si = { sizeof(si) };
-    PROCESS_INFORMATION pi;
-    if (CreateProcessW(NULL, (LPWSTR)finalCmd.c_str(), NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi)) {
+    PROCESS_INFORMATION pi = {};
+    if (CreateProcessW(NULL, &finalCmd[0], NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi)) {
         CloseHandle(pi.hProcess);
         CloseHandle(pi.hThread);
     }

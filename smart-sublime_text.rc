@@ -1,0 +1,38 @@
+// smart-sublime_text.rc
+// Resource script for smart-sublime_text.exe
+// The icon file sublime_text.ico must be present at build time.
+// See fetch_icons.py to extract it automatically from your Sublime Text installation.
+
+#include <winver.h>
+
+// Application icon (ID 1 = default app icon shown in Explorer/taskbar)
+1 ICON "sublime_text.ico"
+
+// Version information block
+VS_VERSION_INFO VERSIONINFO
+    FILEVERSION     1,0,0,0
+    PRODUCTVERSION  1,0,0,0
+    FILEFLAGSMASK   VS_FFI_FILEFLAGSMASK
+    FILEFLAGS       0
+    FILEOS          VOS_NT_WINDOWS32
+    FILETYPE        VFT_APP
+    FILESUBTYPE     VFT2_UNKNOWN
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"
+        BEGIN
+            VALUE "CompanyName",      "smart-launch"
+            VALUE "FileDescription",  "Smart Sublime Text Launcher"
+            VALUE "FileVersion",      "1.0.0.0"
+            VALUE "InternalName",     "smart-sublime_text"
+            VALUE "OriginalFilename", "smart-sublime_text.exe"
+            VALUE "ProductName",      "smart-sublime_text"
+            VALUE "ProductVersion",   "1.0.0.0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x0409, 0x04B0
+    END
+END
